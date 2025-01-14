@@ -33,7 +33,7 @@ def read_authors(db: Session = Depends(get_db)):
     return get_all_authors(db=db)
 
 
-@app.get("/authors/{author_id}", response_model=Author)
+@app.get("/authors/{author_id}/", response_model=Author)
 def read_author(author_id: int, db: Session = Depends(get_db)):
     author = get_author_by_id(db=db, author_id=author_id)
     if author is None:
